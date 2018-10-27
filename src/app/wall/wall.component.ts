@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { Post } from '../models/post';
 
 @Component({
   selector: 'app-wall',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class WallComponent implements OnInit {
 
-  @Input() posts: Array<any>;
+  @Input() posts: Array<Post>;
 
   constructor() { }
 
