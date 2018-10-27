@@ -1,0 +1,21 @@
+.card-columns {
+  // if we were using sass we could do the following:
+  /** @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+  }*/
+  // but forced to use sass, so:
+  @media (max-width: 767px) {
+    column-count: 1;
+  }
+
+  @media (min-width: 768px) {
+    column-count: 2;
+  }
+
+  @media (min-width: 992px) {
+    column-count: 3;
+  }
+}
