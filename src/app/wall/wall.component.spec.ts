@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WallComponent } from './wall.component';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
+import {SearchService} from '../services/search.service';
 
 describe('WallComponent', () => {
   let component: WallComponent;
@@ -8,7 +10,9 @@ describe('WallComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WallComponent ]
+      declarations: [ WallComponent ],
+      providers: [SearchService],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
