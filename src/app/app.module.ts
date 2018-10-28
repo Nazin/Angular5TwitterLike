@@ -17,11 +17,14 @@ import { DelayedWallComponent } from './delayed-wall/delayed-wall.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { PostService } from './services/post.service';
 import { SearchService } from './services/search.service';
 import { AuthenticationService } from './services/authentication.service';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ErrorService } from './services/error.service';
+import { ErrorInterceptorProvider } from './shared/error-interceptor';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LoaderComponent,
     SearchComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +48,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   providers: [
     AuthGuard,
+    ErrorInterceptorProvider,
     PostService,
     SearchService,
-    AuthenticationService
+    AuthenticationService,
+    ErrorService
   ],
   bootstrap: [AppComponent]
 })
