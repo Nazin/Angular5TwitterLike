@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthenticationService} from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 
-export class AppComponent {}
+export class AppComponent {
+
+  constructor(private authenticationService: AuthenticationService) {}
+
+  logout() {
+    this.authenticationService.logout();
+  }
+}
