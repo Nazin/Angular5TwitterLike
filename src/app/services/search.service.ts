@@ -5,7 +5,8 @@ export class SearchService {
 
   private enabled = false;
 
-  @Output() change: EventEmitter<boolean> = new EventEmitter();
+  @Output() changeEvent: EventEmitter<boolean> = new EventEmitter();
+  @Output() searchEvent: EventEmitter<string> = new EventEmitter();
 
   enable() {
     this.toggle(true);
@@ -17,6 +18,10 @@ export class SearchService {
 
   toggle(enabled: boolean) {
     this.enabled = enabled;
-    this.change.emit(this.enabled);
+    this.changeEvent.emit(this.enabled);
+  }
+
+  search(query: string) {
+    this.searchEvent.emit(query);
   }
 }

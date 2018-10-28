@@ -1,3 +1,5 @@
 <div class="card-columns">
-  <app-post class="" *ngFor="let post of posts" [post]="post"></app-post>
+  <ng-container *ngFor="let post of posts">
+    <app-post [post]="post" *ngIf="post.matches(query)"></app-post>
+  </ng-container>
 </div>

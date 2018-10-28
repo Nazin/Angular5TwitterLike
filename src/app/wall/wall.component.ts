@@ -11,10 +11,13 @@ export class WallComponent implements OnInit, OnDestroy {
 
   @Input() posts: Array<Post>;
 
+  public query = '';
+
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
     this.searchService.enable();
+    this.searchService.searchEvent.subscribe(query => this.query = query);
   }
 
   ngOnDestroy() {

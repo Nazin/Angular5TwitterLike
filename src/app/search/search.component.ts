@@ -12,9 +12,11 @@ export class SearchComponent implements OnInit {
 
   constructor(private searchService: SearchService) { }
 
+  search(value: string) {
+    this.searchService.search(value);
+  }
+
   ngOnInit() {
-    this.searchService.change.subscribe(enabled => {
-      this.enabled = enabled;
-    });
+    this.searchService.changeEvent.subscribe(enabled => this.enabled = enabled);
   }
 }

@@ -15,4 +15,12 @@ export class Post {
     }
     return this.body;
   }
+
+  matches(query: string): boolean {
+    if (query === '' || !query) {
+      return true;
+    }
+    query = query.toLowerCase();
+    return this.title.toLowerCase().includes(query) || this.body.toLowerCase().includes(query);
+  }
 }
