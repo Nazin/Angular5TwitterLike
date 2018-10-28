@@ -9,7 +9,12 @@ import {AuthenticationService} from './services/authentication.service';
 
 export class AppComponent {
 
-  constructor(private authenticationService: AuthenticationService) {}
+  public isLoggedIn = false;
+
+  constructor(private authenticationService: AuthenticationService) {
+    this.isLoggedIn = this.authenticationService.isLoggedIn();
+    this.authenticationService.loginEvent.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+  }
 
   logout() {
     this.authenticationService.logout();

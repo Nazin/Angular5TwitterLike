@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" [routerLink]="['']">Twitter Like</a>
-  <div class="navbar-nav">
+  <div class="navbar-nav" *ngIf="isLoggedIn">
     <a class="nav-item nav-link" [routerLink]="['login']" (click)="logout()">Logout</a>
   </div>
   <app-search></app-search>
