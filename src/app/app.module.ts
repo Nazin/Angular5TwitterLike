@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { SharedBootstrapModule } from './shared-bootstrap.module';
 import { PostComponent } from './post/post.component';
 import { WallComponent } from './wall/wall.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
+import { DelayedWallComponent } from './delayed-wall/delayed-wall.component';
 
 import { PostService } from './services/post.service';
 
@@ -16,7 +18,9 @@ import { PostService } from './services/post.service';
   declarations: [
     AppComponent,
     PostComponent,
-    WallComponent
+    WallComponent,
+    PostDetailsComponent,
+    DelayedWallComponent
   ],
   imports: [
     BrowserModule,
