@@ -11,7 +11,6 @@ import {Post} from '../models/post';
 export class PostDetailsComponent implements OnInit {
 
   constructor(private postService: PostService, private route: ActivatedRoute) {
-    this.postService = postService;
     this.route.params.subscribe(params => this.postService.getPost(params.id).subscribe((post: Post) => this.post = post));
   }
 
