@@ -19,6 +19,10 @@ export class AuthenticationService {
     return false;
   }
 
+  isLoggedIn() {
+    return this.sessionStorage.getItem(IS_LOGGED_IN);
+  }
+
   logout() {
     this.sessionStorage.removeItem(IS_LOGGED_IN);
   }

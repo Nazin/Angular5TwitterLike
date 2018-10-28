@@ -7,7 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { SharedBootstrapModule } from './shared-bootstrap.module';
+import { AuthGuard } from './_guards/auth.guard';
+
+import { SharedBootstrapModule } from './shared/shared-bootstrap.module';
 import { PostComponent } from './post/post.component';
 import { WallComponent } from './wall/wall.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
@@ -39,6 +41,7 @@ import { AuthenticationService } from './services/authentication.service';
     SharedBootstrapModule
   ],
   providers: [
+    AuthGuard,
     PostService,
     SearchService,
     AuthenticationService

@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import {PostDetailsComponent} from './post-details/post-details.component';
 import {DelayedWallComponent} from './delayed-wall/delayed-wall.component';
 import {LoginComponent} from './login/login.component';
+import {AuthGuard} from './_guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: DelayedWallComponent },
+  { path: '', component: DelayedWallComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'post/:id', component: PostDetailsComponent },
+  { path: 'post/:id', component: PostDetailsComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
