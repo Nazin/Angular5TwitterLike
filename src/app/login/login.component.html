@@ -1,0 +1,20 @@
+<p>Before accessing any page you have to login.</p>
+<div class="col-md-6 col-md-offset-3">
+  <h2>Login</h2>
+  <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" id="username" [(ngModel)]="model.username" [ngClass]="{ 'is-invalid': f.submitted && !username.valid }" #username="ngModel" required />
+      <div *ngIf="f.submitted && !username.valid" class="invalid-feedback">Username is required</div>
+      <div *ngIf="isInvalid" class="invalid-feedback">Username or password is invalid</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password" [(ngModel)]="model.password" [ngClass]="{ 'is-invalid': f.submitted && !password.valid }" #password="ngModel" required />
+      <div *ngIf="f.submitted && !password.valid" class="invalid-feedback">Password is required</div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">Login</button>
+    </div>
+  </form>
+</div>
