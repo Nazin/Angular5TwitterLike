@@ -1,0 +1,15 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['']">Wall</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Post details</li>
+  </ol>
+</nav>
+
+<h1 class="text-center">Post details</h1>
+<div class="card">
+  <h5 class="card-header">{{ post.title }} // {{ post.id }}</h5>
+  <div class="card-body">
+    <p class="card-text">{{ post.body }}</p>
+    <p class="card-text"><small class="text-muted">by user: {{ post.userId }}</small></p>
+  </div>
+</div>
