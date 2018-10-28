@@ -6,4 +6,6 @@
 
 <h1 class="text-center">Wall</h1>
 
+<app-loader *ngIf="posts.length === 0"></app-loader>
+
 <app-wall [posts]="posts"></app-wall>
