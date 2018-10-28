@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { PostService } from './services/post.service';
 import { SearchService } from './services/search.service';
 import { AuthenticationService } from './services/authentication.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AuthenticationService } from './services/authentication.service';
     DelayedWallComponent,
     LoaderComponent,
     SearchComponent,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
