@@ -12,8 +12,10 @@ import { WallComponent } from './wall/wall.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { DelayedWallComponent } from './delayed-wall/delayed-wall.component';
 import { LoaderComponent } from './loader/loader.component';
+import { SearchComponent } from './search/search.component';
 
 import { PostService } from './services/post.service';
+import { SearchService } from './services/search.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { PostService } from './services/post.service';
     WallComponent,
     PostDetailsComponent,
     DelayedWallComponent,
-    LoaderComponent
+    LoaderComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { PostService } from './services/post.service';
     SharedBootstrapModule
   ],
   providers: [
-    PostService
+    PostService,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })

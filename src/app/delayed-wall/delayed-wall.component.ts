@@ -10,9 +10,7 @@ import {delayedWallConfiguration} from './delayed-wall-component.config';
 })
 export class DelayedWallComponent implements OnInit {
 
-  constructor(private postService: PostService) {
-    this.postService = postService;
-  }
+  constructor(private postService: PostService) {}
 
   public posts: Array<Post> = [];
   private allPosts: Array<Post> = [];
