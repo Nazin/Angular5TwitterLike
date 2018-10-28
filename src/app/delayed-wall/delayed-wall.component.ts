@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Post} from '../models/post';
 import {PostService} from '../services/post.service';
-import {SORT} from '../shared/definitions';
+import {delayedWallConfiguration} from './delayed-wall-component.config';
 
 @Component({
   selector: 'app-delayed-wall',
@@ -19,18 +19,23 @@ export class DelayedWallComponent implements OnInit {
   private postsDisplayed = 0;
 
   ngOnInit() {
-    this.postService.getAllPostsSorted('id', SORT.DESC).subscribe(this.postsReceived.bind(this));
+    this.postService.getAllPostsSorted(delayedWallConfiguration.sort.by, delayedWallConfiguration.sort.order)
+      .subscribe(this.postsReceived.bind(this));
   }
 
   postsReceived(posts: Post[]) {
     this.allPosts = posts;
-    this.delayPosts();
+    if (delayedWallConfiguration.delay.enabled) {
+      this.delayPosts();
+    } else {
+      this.posts = posts;
+    }
   }
 
   delayPosts() {
     this.posts = this.allPosts.slice(0, ++this.postsDisplayed);
     if (this.posts.length !== this.allPosts.length) {
-      setTimeout(this.delayPosts.bind(this), 1000);
+      setTimeout(this.delayPosts.bind(this), delayedWallConfiguration.delay.interval);
     }
   }
 }

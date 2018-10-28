@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from '../models/post';
+import {postConfiguration} from './post.component.config';
 
 @Component({
   selector: 'app-post',
@@ -8,7 +9,12 @@ import {Post} from '../models/post';
 })
 export class PostComponent implements OnInit {
   @Input() post: Post;
-  constructor() { }
+
+  public configuration: any;
+
+  constructor() {
+    this.configuration = postConfiguration;
+  }
 
   ngOnInit() {
   }

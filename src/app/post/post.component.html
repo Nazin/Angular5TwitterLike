@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">{{ post.title }}</h5>
-    <p class="card-text">{{ post.excerpt() }}</p>
+    <p class="card-text">{{ post.excerpt(configuration.excerptLength) }}</p>
     <a [routerLink]="['post', post.id]" class="btn btn-primary">Read more</a>
   </div>
 </div>

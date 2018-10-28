@@ -1,7 +1,5 @@
 export class Post {
 
-  EXCERPT_LENGTH = 90; // @todo should be moved to some configuration file
-
   userId: number;
   id: number;
   title: string;
@@ -11,9 +9,9 @@ export class Post {
     Object.assign(this, obj);
   }
 
-  excerpt(): string {
-    if (this.body.length > this.EXCERPT_LENGTH) {
-      return this.body.substr(0, this.EXCERPT_LENGTH) + '...';
+  excerpt(length: number): string {
+    if (this.body.length > length) {
+      return this.body.substr(0, length) + '...';
     }
     return this.body;
   }
