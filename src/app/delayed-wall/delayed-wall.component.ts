@@ -15,9 +15,22 @@ export class DelayedWallComponent implements OnInit {
   }
 
   public posts: Array<Post> = [];
+  private allPosts: Array<Post> = [];
+  private postsDisplayed = 0;
 
   ngOnInit() {
-    this.postService.getAllPostsSorted('id', SORT.DESC).subscribe((posts: Post[]) => this.posts = posts);
+    this.postService.getAllPostsSorted('id', SORT.DESC).subscribe(this.postsReceived.bind(this));
   }
 
+  postsReceived(posts: Post[]) {
+    this.allPosts = posts;
+    this.delayPosts();
+  }
+
+  delayPosts() {
+    this.posts = this.allPosts.slice(0, ++this.postsDisplayed);
+    if (this.posts.length !== this.allPosts.length) {
+      setTimeout(this.delayPosts.bind(this), 1000);
+    }
+  }
 }
